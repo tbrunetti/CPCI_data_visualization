@@ -1,6 +1,6 @@
 import sys
 import os
-from subprocesses import call
+from subprocess import call
 
 
 #sys.argv[1] is a file with a list of chromosomes to keep in a bam (chr*** format)
@@ -11,7 +11,7 @@ def filterBam(pathToSamtools, pathToBamFile):
 	#appends results for each chromosome
 	output=open('newBam_chromsomeSpecific_'+str(sys.argv[2]), 'a')
 	#change directory into samtools working directory
-	chdir.os(pathToSamtools)
+	os.chdir(pathToSamtools)
 	with open(sys.argv[1]) as input:
 		for line in input:
 			line=line.rstrip('\n')
@@ -21,4 +21,4 @@ def filterBam(pathToSamtools, pathToBamFile):
 if __name__=='__main__':
 	pathToSamtools='/home/ubuntu/TOOLS/samtools-0.1.19'
 	pathToBamFile='/mnt/'
-	filterBam(pathToSamtools);
+	filterBam(pathToSamtools, pathToBamFile);
